@@ -46,4 +46,13 @@
 // 20.  Can you improve the performance?
 // 21.   How have other people solved this problem?
 
-function collectStrings(obj) {}
+function collectStrings(obj) {
+  let newArr = [];
+  for (let key in obj) {
+    if (typeof obj[key] === "object") {
+      collectStrings(obj[key]);
+    } else if (typeof obj[key] === "string") {
+      newArr.push(obj[key]);
+    }
+  }
+}
