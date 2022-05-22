@@ -55,4 +55,5 @@ function collectStrings(obj) {
       newArr.push(obj[key]);
     }
   }
+  return newArr;
 }
