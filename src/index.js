@@ -51,14 +51,13 @@ function collectStrings(obj) {
 
   function gatherStrings(obj1) {
     for (let key in obj1) {
-     if (typeof obj1[key] === "string") {
-      newArr.push(obj1[key]);
-     } else if (typeof obj1[key] === "object") {
+      if (typeof obj1[key] === "string") {
+        newArr.push(obj1[key]);
+      } else if (typeof obj1[key] === "object") {
         return gatherStrings(obj1[key]);
       }
     }
-
   }
-
-  
-  
+  gatherStrings(obj);
+  return newArr;
+}
