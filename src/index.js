@@ -48,12 +48,16 @@
 
 function collectStrings(obj) {
   let newArr = [];
-  for (let key in obj) {
-    if (typeof obj[key] === "object") {
-      collectStrings(obj[key]);
-    } else if (typeof obj[key] === "string") {
+
+  function gatherStrings(obj) {
+    for (let key in obj) {
+     if (typeof obj[key] === "string") {
       newArr.push(obj[key]);
+     } else if (typeof obj[key] === "object") {
+        return gatherStrings(obj[key]);
+      }
     }
   }
-  return newArr;
-}
+
+  
+  
